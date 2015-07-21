@@ -7,7 +7,7 @@ public class Stock {
 	
 	private String name;
 	private String symbol;
-	private BigDecimal price;
+	private BigDecimal currentPrice;
 	private BigDecimal dailyChange;
 	
 	private BigDecimal open;
@@ -19,23 +19,23 @@ public class Stock {
 	private int bidSize;
 	private int askSize;
 	private double beta;
-	private double vwap;
+	private double volumeWeightedAvgPrice;
 	
 	private double dividend;
-	private double yield;
+	private double dividendYield;
 	private String divFrequency;
 	private Date exDivDate;
 	private int sharesOut;
 	private int marketCap;
-	private double peRatio;
-	private double pbRatio;
-	private double eps;
+	private double priceEarningsRatio;
+	private double priceToBookRatio;
+	private double earningsPerShare;
 	private String exchange;
 	
 	public Stock(String name, String symbol, BigDecimal price, BigDecimal dailyChange) {
 		this.name = name;
 		this.symbol = symbol;
-		this.price = price;
+		this.currentPrice = price;
 		this.dailyChange = dailyChange;
 	}
 
@@ -55,12 +55,12 @@ public class Stock {
 		this.symbol = symbol;
 	}
 
-	public BigDecimal getPrice() {
-		return price;
+	public BigDecimal getCurrentPrice() {
+		return currentPrice;
 	}
 
-	public void setPrice(BigDecimal price) {
-		this.price = price;
+	public void setCurrentPrice(BigDecimal price) {
+		this.currentPrice = price;
 	}
 
 	public BigDecimal getDailyChange() {
@@ -143,12 +143,12 @@ public class Stock {
 		this.beta = beta;
 	}
 
-	public double getVwap() {
-		return vwap;
+	public double getVolumeWeightedAvgPrice() {
+		return volumeWeightedAvgPrice;
 	}
 
-	public void setVwap(double vwap) {
-		this.vwap = vwap;
+	public void setVolumeWeightedAvgPrice(double vwap) {
+		this.volumeWeightedAvgPrice = vwap;
 	}
 
 	public double getDividend() {
@@ -159,12 +159,12 @@ public class Stock {
 		this.dividend = dividend;
 	}
 
-	public double getYield() {
-		return yield;
+	public double getDividendYield() {
+		return dividendYield;
 	}
 
-	public void setYield(double yield) {
-		this.yield = yield;
+	public void setDividendYield(double dividendYield) {
+		this.dividendYield = dividendYield;
 	}
 
 	public String getDivFrequency() {
@@ -199,28 +199,28 @@ public class Stock {
 		this.marketCap = marketCap;
 	}
 
-	public double getPeRatio() {
-		return peRatio;
+	public double getPriceEarningsRatio() {
+		return priceEarningsRatio;
 	}
 
-	public void setPeRatio(double peRatio) {
-		this.peRatio = peRatio;
+	public void setPriceEarningsRatio(double priceEarningsRatio) {
+		this.priceEarningsRatio = priceEarningsRatio;
 	}
 
-	public double getPbRatio() {
-		return pbRatio;
+	public double getPriceToBookRatio() {
+		return priceToBookRatio;
 	}
 
-	public void setPbRatio(double pbRatio) {
-		this.pbRatio = pbRatio;
+	public void setPriceToBookRatio(double priceToBookRatio) {
+		this.priceToBookRatio = priceToBookRatio;
 	}
 
-	public double getEps() {
-		return eps;
+	public double getEarningsPerShare() {
+		return earningsPerShare;
 	}
 
-	public void setEps(double eps) {
-		this.eps = eps;
+	public void setEarningsPerShare(double earningsPerShare) {
+		this.earningsPerShare = earningsPerShare;
 	}
 
 	public String getExchange() {
@@ -234,15 +234,15 @@ public class Stock {
 	@Override
 	public String toString() {
 		return "Stock [name=" + name + ", symbol=" + symbol + ", price="
-				+ price + ", dailyChange=" + dailyChange + ", open=" + open
+				+ currentPrice + ", dailyChange=" + dailyChange + ", open=" + open
 				+ ", prevClose=" + prevClose + ", high=" + high + ", low="
 				+ low + ", bid=" + bid + ", ask=" + ask + ", bidSize="
 				+ bidSize + ", askSize=" + askSize + ", beta=" + beta
-				+ ", vwap=" + vwap + ", dividend=" + dividend + ", yield="
-				+ yield + ", divFrequency=" + divFrequency + ", exDivDate="
+				+ ", vwap=" + volumeWeightedAvgPrice + ", dividend=" + dividend + ", yield="
+				+ dividendYield + ", divFrequency=" + divFrequency + ", exDivDate="
 				+ exDivDate + ", sharesOut=" + sharesOut + ", marketCap="
-				+ marketCap + ", peRatio=" + peRatio + ", pbRatio=" + pbRatio
-				+ ", eps=" + eps + ", exchange=" + exchange + "]";
+				+ marketCap + ", peRatio=" + priceEarningsRatio + ", pbRatio=" + priceToBookRatio
+				+ ", eps=" + earningsPerShare + ", exchange=" + exchange + "]";
 	}
 	
 }

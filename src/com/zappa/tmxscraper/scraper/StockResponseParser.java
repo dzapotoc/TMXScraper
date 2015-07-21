@@ -106,18 +106,18 @@ public class StockResponseParser {
 		stock.setLow(low);
 		stock.setAsk(ask);
 		stock.setAskSize(askSize);
-		stock.setVwap(vwap);
+		stock.setVolumeWeightedAvgPrice(vwap);
 		
 		stock.setDividend(dividend);
 		stock.setDivFrequency(divFrequency);
 		stock.setSharesOut(sharesOut);
-		stock.setPeRatio(peRatio);
-		stock.setEps(eps);
+		stock.setPriceEarningsRatio(peRatio);
+		stock.setEarningsPerShare(eps);
 		
-		stock.setYield(yield);
+		stock.setDividendYield(yield);
 		stock.setExDivDate(exDivDate);
 		stock.setMarketCap(marketCap);
-		stock.setPbRatio(pbRatio);
+		stock.setPriceToBookRatio(pbRatio);
 		stock.setExchange(exchange);
 		
 		return stock;
