@@ -10,6 +10,9 @@ public class Stock {
 	private BigDecimal currentPrice;
 	private BigDecimal dailyChange;
 	
+	private BigDecimal yearHigh;
+	private BigDecimal yearLow;
+	
 	private BigDecimal open;
 	private BigDecimal prevClose;
 	private BigDecimal high;
@@ -230,19 +233,39 @@ public class Stock {
 	public void setExchange(String exchange) {
 		this.exchange = exchange;
 	}
+	
+	public BigDecimal getYearHigh() {
+		return yearHigh;
+	}
+	
+	public void setYearHigh(BigDecimal yearHigh) {
+		this.yearHigh = yearHigh;
+	}
+	
+	public BigDecimal getYearLow() {
+		return yearLow;
+	}
+	
+	public void setYearLow(BigDecimal yearLow) {
+		this.yearLow = yearLow;
+	}
 
 	@Override
 	public String toString() {
-		return "Stock [name=" + name + ", symbol=" + symbol + ", price="
-				+ currentPrice + ", dailyChange=" + dailyChange + ", open=" + open
+		return "Stock [name=" + name + ", symbol=" + symbol + ", currentPrice="
+				+ currentPrice + ", dailyChange=" + dailyChange + ", yearHigh="
+				+ yearHigh + ", yearLow=" + yearLow + ", open=" + open
 				+ ", prevClose=" + prevClose + ", high=" + high + ", low="
 				+ low + ", bid=" + bid + ", ask=" + ask + ", bidSize="
 				+ bidSize + ", askSize=" + askSize + ", beta=" + beta
-				+ ", vwap=" + volumeWeightedAvgPrice + ", dividend=" + dividend + ", yield="
-				+ dividendYield + ", divFrequency=" + divFrequency + ", exDivDate="
-				+ exDivDate + ", sharesOut=" + sharesOut + ", marketCap="
-				+ marketCap + ", peRatio=" + priceEarningsRatio + ", pbRatio=" + priceToBookRatio
-				+ ", eps=" + earningsPerShare + ", exchange=" + exchange + "]";
+				+ ", volumeWeightedAvgPrice=" + volumeWeightedAvgPrice
+				+ ", dividend=" + dividend + ", dividendYield=" + dividendYield
+				+ ", divFrequency=" + divFrequency + ", exDivDate=" + exDivDate
+				+ ", sharesOut=" + sharesOut + ", marketCap=" + marketCap
+				+ ", priceEarningsRatio=" + priceEarningsRatio
+				+ ", priceToBookRatio=" + priceToBookRatio
+				+ ", earningsPerShare=" + earningsPerShare + ", exchange="
+				+ exchange + "]";
 	}
 	
 }

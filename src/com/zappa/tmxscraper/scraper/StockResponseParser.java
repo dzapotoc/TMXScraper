@@ -18,6 +18,9 @@ public class StockResponseParser {
 	private BigDecimal price;
 	private BigDecimal dailyChange;
 	
+	private BigDecimal yearHigh;
+	private BigDecimal yearLow;
+	
 	private BigDecimal open;
 	private BigDecimal prevClose;
 	private BigDecimal high;
@@ -42,6 +45,7 @@ public class StockResponseParser {
 	
 	public StockResponseParser(Document dom) {
 		getSimpleQuoteData(dom);
+		getYearHighLowData(dom);
 		getDetailedQuoteData(dom);
 	}
 	
@@ -59,6 +63,14 @@ public class StockResponseParser {
 		
 		Element quoteChangeDiv = quoteDataDiv.getElementsByClass("quote-change").first();
 		dailyChange = getBigDecimalFromPage(quoteChangeDiv.text().split(" ")[1]);
+	}
+	
+	private void getYearHighLowData(Document dom) {
+		Element yearLowDiv = dom.getElementsByClass("week-low").first();
+		yearLow = getBigDecimalFromPage(yearLowDiv.text().split(" ")[3]);
+		
+		Element yearHighDiv = dom.getElementsByClass("week-high").first();
+		yearHigh = getBigDecimalFromPage(yearHighDiv.text().split(" ")[3]);
 	}
 	
 	private void getDetailedQuoteData(Document dom) {
@@ -101,6 +113,9 @@ public class StockResponseParser {
 		stock.setBid(bid);
 		stock.setBidSize(bidSize);
 		stock.setBeta(beta);
+		
+		stock.setYearHigh(yearHigh);
+		stock.setYearLow(yearLow);
 		
 		stock.setPrevClose(prevClose);
 		stock.setLow(low);
