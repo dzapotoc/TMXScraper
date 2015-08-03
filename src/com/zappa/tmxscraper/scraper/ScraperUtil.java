@@ -1,7 +1,9 @@
 package com.zappa.tmxscraper.scraper;
 
 import java.math.BigDecimal;
-import java.sql.Date;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
@@ -39,11 +41,11 @@ public class ScraperUtil {
 		return number;
 	}
 	
-	public static Date getDateFromPage(String dateFromPageText) {
-		Date date;
+	public static Calendar getDateFromPage(String dateFromPageText) {
+		Calendar date;
 		try {
-			long time = dateFormat.parse(dateFromPageText).getTime();
-			date = new Date(time);
+			date = new GregorianCalendar();
+			date.setTimeInMillis(dateFormat.parse(dateFromPageText).getTime());
 		} catch (ParseException e) {
 			date = null;
 		}

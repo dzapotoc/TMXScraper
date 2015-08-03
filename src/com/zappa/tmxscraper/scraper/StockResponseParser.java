@@ -1,9 +1,13 @@
 package com.zappa.tmxscraper.scraper;
 
-import static com.zappa.tmxscraper.scraper.ScraperUtil.*;
+import static com.zappa.tmxscraper.scraper.ScraperUtil.getBigDecimalFromPage;
+import static com.zappa.tmxscraper.scraper.ScraperUtil.getDateFromPage;
+import static com.zappa.tmxscraper.scraper.ScraperUtil.getDoubleFromPage;
+import static com.zappa.tmxscraper.scraper.ScraperUtil.getIntFromPage;
 
 import java.math.BigDecimal;
-import java.sql.Date;
+import java.util.Calendar;
+import java.util.Date;
 
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -35,7 +39,7 @@ public class StockResponseParser {
 	private double dividend;
 	private double yield;
 	private String divFrequency;
-	private Date exDivDate;
+	private Calendar exDivDate;
 	private int sharesOut;
 	private int marketCap;
 	private double peRatio;

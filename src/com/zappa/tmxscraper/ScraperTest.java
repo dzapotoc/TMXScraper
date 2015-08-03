@@ -1,5 +1,8 @@
 package com.zappa.tmxscraper;
 
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+
 import com.zappa.tmxscraper.scraper.TMXScraper;
 
 public class ScraperTest {
@@ -16,6 +19,15 @@ public class ScraperTest {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+		}
+		
+		Calendar date = new GregorianCalendar(2005, 11, 1);
+		try {
+			StockHistory stock = TMXScraper.getHistory(symbols[0], date);
+			System.out.println(stock.getPrice() + " " + stock.getChange());
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		
 	}

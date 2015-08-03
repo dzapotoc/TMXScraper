@@ -1,7 +1,11 @@
 package com.zappa.tmxscraper;
 
 import java.math.BigDecimal;
-import java.sql.Date;
+import java.util.Calendar;
+import java.util.Date;
+
+import com.zappa.tmxscraper.scraper.TMXScraper;
+import com.zappa.tmxscraper.StockHistory;
 
 public class Stock {
 	
@@ -27,7 +31,7 @@ public class Stock {
 	private double dividend;
 	private double dividendYield;
 	private String divFrequency;
-	private Date exDivDate;
+	private Calendar exDivDate;
 	private int sharesOut;
 	private int marketCap;
 	private double priceEarningsRatio;
@@ -40,6 +44,10 @@ public class Stock {
 		this.symbol = symbol;
 		this.currentPrice = price;
 		this.dailyChange = dailyChange;
+	}
+	
+	public StockHistory getStockHistory(Calendar date) throws Exception {
+		return TMXScraper.getHistory(symbol, date);
 	}
 
 	public String getName() {
@@ -178,11 +186,11 @@ public class Stock {
 		this.divFrequency = divFrequency;
 	}
 
-	public Date getExDivDate() {
+	public Calendar getExDivDate() {
 		return exDivDate;
 	}
 
-	public void setExDivDate(Date exDivDate) {
+	public void setExDivDate(Calendar exDivDate) {
 		this.exDivDate = exDivDate;
 	}
 
